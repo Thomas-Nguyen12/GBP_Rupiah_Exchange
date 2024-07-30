@@ -1,6 +1,5 @@
 import streamlit as st 
 import numpy as np 
-import scipy.stats as stats 
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 from scalecast.Forecaster import Forecaster 
