@@ -115,14 +115,48 @@ with st.container():
         
         # the year slider is a tuple
         # I will need to find the dataframe rows between the certain values
+        try: 
+            time_period1 = pd.to_datetime(f"{year_slider[0]}/{month_slider[0]}/{day_slider[0]}")
+            time_period2 = pd.to_datetime(f"{year_slider[1]}/{month_slider[1]}/{day_slider[1]}")
+            
+            specific_df = df.loc[time_period1:time_period2]
+        except: 
+            st.write("Nice try. Enter a past date") 
+        finally: 
+            st.write("")
+        st.divider()
+        # conversion calcualtor 
+        conversion_calculator = st.text_input('Convert Rupiah to pounds:', '1000')
+        try: 
+            
+            
+            conversion_calculator_numeric = float(conversion_calculator) 
+            exchange_rate = float(df['pounds_in_a_rupiah'][-1])
+        except NameError:
+            st.write("Enter a number")
+        except: 
+            st.write("Nice try. Enter a number")
+     
+        finally: 
+            pounds = conversion_calculator_numeric * exchange_rate 
+            st.write(f"This is equal to: £{pounds}")
         
-        time_period1 = pd.to_datetime(f"{year_slider[0]}/{month_slider[0]}/{day_slider[0]}")
-        time_period2 = pd.to_datetime(f"{year_slider[1]}/{month_slider[1]}/{day_slider[1]}")
-
+        st.divider() 
+        conversion_calculator2 = st.text_input('Convert Pounds to Rupiah', '10')
+        try: 
+            
+            conversion_calculator2_numeric = float(conversion_calculator2)
+            exchange_rate2 = float(df['rupiahs_in_a_pound'][-1]) 
+            rupiahs = conversion_calculator2_numeric * exchange_rate2 
+        except NameError: 
+            st.write("Enter a number")
+        except: 
+            st.write("Nice try. Enter a number") 
+        finally: 
+            st.write(f"This is equal to: {rupiahs} Rp")
+            
         
-        ## Indexing the dataframe 
-        
-        specific_df = df.loc[time_period1:time_period2]        
+           
     # Vizualising data
     with right_column: 
         current_tab, forecast_tab = st.tabs(['current', 'forecast'])
