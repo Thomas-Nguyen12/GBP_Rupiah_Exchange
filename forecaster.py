@@ -39,6 +39,9 @@ f.add_poly_terms('t',pwr=3) # 't^2' and 't^3'
 f.set_validation_length(6)
 # automatically tune and forecast with a series of models
 models = ('mlr','knn','svr','xgboost','gbt','elasticnet','mlp','prophet')
+
+# I need to optimise the models here
+
 for m in models:
  f.set_estimator(m)
  f.tune() # by default, will pull grids from Grids.py
@@ -46,15 +49,6 @@ for m in models:
  f.set_estimator('combo')
 f.manual_forecast(how='simple',models='top_3',determine_best_by='ValidationMetricValue',call_me='avg')
 f.manual_forecast(how='weighted',models=models,determine_best_by='ValidationMetricValue',call_me='weighted')
-f.set_estimator('lstm')
-f.manual_forecast(
-    call_me='lstm_model',
-    epochs=100,
-    loss='mse',
-    learning_rate=0.01,
-    optimizer='Adam',
-    lstm_layer_sizes=[32],
-)
 
 # Saving the forecaster 
 
@@ -67,6 +61,10 @@ f.plot(models='top_3', order_by="TestSetRMSE")
 plt.axvline(x=max(df.index), c='black')
 plt.ylabel("Rupiahs in a Pound")
 plt.savefig('forecast.png')
+## How I save the matplotlib figure? Maybe I can make this interactive? 
+## Maybe I can save the raw plotting data? 
+
+
 
 plt.show()
 date_for_line = max(df.index) 

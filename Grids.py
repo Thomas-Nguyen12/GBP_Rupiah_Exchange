@@ -49,20 +49,22 @@ rf = {
 
 svr={
 	'kernel':['linear'],
-        'C':[.5,1,2,3],
-        'epsilon':[0.01,0.1,0.5]
+    'C':[.5,1,2,3],
+    'epsilon':[0.01,0.1,0.5]
 }
 
 xgboost = {
-	'max_depth':[2,3,4,5,6]
+	'max_depth':[2,3,4,5,6, 7, 8, 9, 10],
+	'eta': [0.001, 0.01, 0.1]
+ 
 }
 
 lstm = {
 	'optimizer': 'Adam',
 	'loss': 'mse',
-	'learning_rate': 0.01,
-	'lstm_layer_sizes': [32],
-	'epochs': 100
+	'learning_rate': [0.001, 0.01, 0.1],
+	'lstm_layer_sizes': [64],
+	'epochs': 30
 
 }
 
