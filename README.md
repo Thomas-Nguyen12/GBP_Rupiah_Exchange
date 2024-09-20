@@ -1,13 +1,21 @@
 # Forecasting British GBP to Indonesian Rupiah Exchange Rates
 
 ## Project Description 
-Many international students constantly check exchange rates when withdrawing their allowances. This requires persistant back and forth checking between local websites and the memory
+Many international students constantly check exchange rates when withdrawing their allowances. This requires persistant back-and-forth checking between local websites and the memory
 to do so. As such, international students are constantly distracted from their studies and are unaware of key dates to check. 
 This project aims to help international students predict key dates between the British pound (GBP) and the Indonesian Rupiah (IDR). As such, they can focus on their studies and
 understand how exchange rates have changed over time. 
 
+## Files
+1. <b>Data Extraction:</b> Data was extracted using the <b>BeautifulSoup</b> package found within <b>currency_data_extraction.py</b> 
+
+2. <b>Forecasting:</b> The forecaster can be found within: <b>forecaster.py</b> and uses <b>scalecast</b> as a TSA forecasting library and <b>Grids.py</b> to tune the models used in the forecasting
+
+3. <b>Dashboard:</b> This dashboard uses Streamlit to host the data, found within: <b>currency_streamlit.py</b>
+
+
 ## Packages
-This project utilises these packages: 
+This project utilises these packages, found within <b>requirements.txt</b>: 
 
 - beautifulsoup4==4.12.3
 - bokeh==3.5.0
