@@ -17,7 +17,7 @@ understand how exchange rates have changed over time.
 > streamlit run currency_streamlit.py
 
 ## Packages
-This project utilises these packages, found within <b>requirements.txt</b>: 
+This project utilises python 3.11.3 and its packages are found within <b>requirements.txt</b>: 
 
 - beautifulsoup4==4.12.3
 - bokeh==3.5.0
