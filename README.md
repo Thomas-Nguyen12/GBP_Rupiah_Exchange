@@ -7,16 +7,13 @@ This project aims to help international students predict key dates between the B
 understand how exchange rates have changed over time. 
 
 ## How to use:
-1. <b>Data Extraction:</b> Data was extracted using the <b>BeautifulSoup</b> package run within <b>currency_data_extraction.py</b>
-This can be run using the code:
+1. <b>Data Extraction:</b> Data was extracted using the <b>BeautifulSoup</b> package run within <b>currency_data_extraction.py</b> which can be executed using:
 > python3 currency_data_extraction.py
 
-3. <b>Forecasting:</b> The forecaster can be found within: <b>forecaster.py</b> and uses <b>scalecast</b> as a TSA forecasting library and <b>Grids.py</b> to tune the models used in the forecasting
-This can be run using the code:
+3. <b>Forecasting:</b> The forecaster can be found within: <b>forecaster.py</b> and uses <b>scalecast</b> as a TSA forecasting library and <b>Grids.py</b> to tune the models used in the forecasting which can be executed using:
 > python3 forecaster.py
 
-5. <b>Dashboard:</b> This dashboard uses Streamlit to host the data, found within: <b>currency_streamlit.py</b>
-This can be run using the code:
+5. <b>Dashboard:</b> This dashboard uses Streamlit to host the data, found within: <b>currency_streamlit.py</b> which can be run via:
 > streamlit run currency_streamlit.py
 
 ## Packages
