@@ -8,12 +8,15 @@ understand how exchange rates have changed over time.
 
 ## How to use:
 1. <b>Data Extraction:</b> Data was extracted using the <b>BeautifulSoup</b> package run within <b>currency_data_extraction.py</b> which can be executed using:
+   
 ```python3 currency_data_extraction.py```
 
 3. <b>Forecasting:</b> The forecaster can be found within: <b>forecaster.py</b> and uses <b>scalecast</b> as a TSA forecasting library and <b>Grids.py</b> to tune the models used in the forecasting which can be executed using:
+   
 ```python3 forecaster.py```
 
 5. <b>Dashboard:</b> This dashboard uses Streamlit to host the data, found within: <b>currency_streamlit.py</b> which can be run via:
+   
 ```streamlit run currency_streamlit.py```
 
 ## Packages
