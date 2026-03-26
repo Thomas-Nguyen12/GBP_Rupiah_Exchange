@@ -7,26 +7,30 @@ import itertools
 from bokeh.palettes import inferno
 from bokeh.plotting import figure
 import pandas as pd 
-from currency_data_extraction import *
 import joblib 
 import pickle
 
 from scalecast.Forecaster import Forecaster  
 import warnings
 warnings.filterwarnings("ignore")
+import os
+
+# checking the working directory
+print (f"Working directory -> {os.getcwd()}") 
 
 
 # Loading the forecast image line boundary data
 
-date_line_boundary = joblib.load("date_line_boundary.joblib")
+date_line_boundary = joblib.load("data/date_line_boundary.joblib")
 
 ## Importing the dataset
 
-
-df['date'] = df.index
-
-years_collected = [int(i) for i in years.keys()]
-
+df = pd.read_csv("data/all_data.csv")
+df['date'] = pd.to_datetime(df['date']) 
+years_collected = [int(i) for i in df['date'].dt.year]
+df.index = df['date']
+min_year = min(years_collected)
+max_year = max(years_collected)
 ## Loading the saved forecaster model 
 # THis can be pretrained? (model.save)
 
@@ -131,7 +135,7 @@ with st.container():
             
             
             conversion_calculator_numeric = float(conversion_calculator) 
-            exchange_rate = float(df['pounds_in_a_rupiah'][-1])
+            exchange_rate = float(df['pounds_in_a_rupiah'].tail(1).values[0])
         except NameError:
             st.write("Enter a number")
         except: 
@@ -146,7 +150,7 @@ with st.container():
         try: 
             
             conversion_calculator2_numeric = float(conversion_calculator2)
-            exchange_rate2 = float(df['rupiahs_in_a_pound'][-1]) 
+            exchange_rate2 = float(df['rupiahs_in_a_pound'].tail(1).values[0]) 
             rupiahs = conversion_calculator2_numeric * exchange_rate2 
         except NameError: 
             st.write("Enter a number")

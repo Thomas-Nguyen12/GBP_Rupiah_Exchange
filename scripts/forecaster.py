@@ -6,7 +6,7 @@ import pickle
 import matplotlib.pyplot as plt
 # Importing the dataset 
 from currency_data_extraction import *
-
+df = data
 
 df['date'] = df.index
 

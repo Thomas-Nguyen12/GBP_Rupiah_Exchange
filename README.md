@@ -1,5 +1,11 @@
 # Forecasting British GBP to Indonesian Rupiah Exchange Rates
 
+
+<b>March 2026 update</b>
+Please note that the webscraper (currency_data_extraction.py) that this project uses has broken due to website changes, with few viable alternatives. However, data up until 2024 has been saved and is viewable on the streamlit dashboard. I will be searching for an alternative and will fixed in due course.
+ 
+
+
 ## Project Description 
 Many international students constantly check exchange rates when withdrawing their allowances. This requires persistant back-and-forth checking between local websites and the memory
 to do so. As such, international students are constantly distracted from their studies and are unaware of key dates to check. 
