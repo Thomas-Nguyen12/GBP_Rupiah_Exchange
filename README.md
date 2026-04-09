@@ -1,10 +1,8 @@
 # Forecasting British GBP to Indonesian Rupiah Exchange Rates
 
 
-<b>March 2026 update</b>
-Please note that the webscraper (currency_data_extraction.py) that this project uses has broken due to website changes, with few viable alternatives. However, data up until 2024 has been saved and is viewable on the streamlit dashboard. I will be searching for an alternative and will fixed in due course.
- 
-
+## March 2026 update
+<b>Please note</b> that the webscraper (currency_data_extraction.py) that this project uses has broken due to website changes, with few viable alternatives. Consequently, some of the files (file tree listed below) are broken. However, data up until 2024 has been saved and is viewable on the streamlit dashboard. I will be searching for an alternative and will fixed in due course.
 
 ## Project Description 
 Many international students constantly check exchange rates when withdrawing their allowances. This requires persistant back-and-forth checking between local websites and the memory
@@ -25,9 +23,39 @@ understand how exchange rates have changed over time.
    
 ```streamlit run currency_streamlit.py```
 
+## Project Structure 
+
+```
+.
+├── currency_streamlit.py   # Main dashboard
+├── data
+│   ├── all_data.csv  # scraped exchange data up until April 2024
+│   ├── date_line_boundary.joblib  # boundary line indicating where the forecast begins
+│   ├── date_line_boundary.pkl
+│   ├── forecaster.joblib   
+│   ├── forecaster.pkl
+│   └── IDR_forecast.xlsx   # forecast predictions saved in excel format
+├── forecast.png   # Image of the currency exchange forecast
+├── models
+│   └── lstm_forecaster.h5
+├── notebooks
+│   └── english_indonesian_exchange.ipynb
+├── README.md
+├── requirements.txt
+└── scripts
+    ├── currency_data_extraction.py
+    ├── currency_data_extraction2.py   # attempt at reconfiguring the web scraper to account for website changes
+    ├── diagnose_page.py   # script to detect changes in the website
+    ├── diagnose_page2.py  # additional script to detect changes in the website
+    ├── forecaster.py   # script to create a GBP/IDR forecaster model 
+    └── Grids.py   # additional algorithms to incorporate into the forecaster
+
+```
+
+
 ## Packages
 This project utilises python 3.11.3 and its packages are found within <b>requirements.txt</b>: 
-
+```
 - beautifulsoup4==4.12.3
 - bokeh==3.5.0
 - joblib==1.4.2
@@ -40,4 +68,4 @@ This project utilises python 3.11.3 and its packages are found within <b>require
 - scipy==1.14.0
 - seaborn==0.13.2
 - streamlit==1.37.0
-
+```
